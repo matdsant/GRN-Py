@@ -40,59 +40,53 @@ Para realizar a validação dos dados, montei uma ***“collection”*** via ***
 
 
 
-1. Para fazer o ***“Registro de Usuários”*** via API, primeiro devemos nos registrar na aplicação via endpoint, utilizando o método HTTP ***“POST”*** no link ***“[link_ip/register]”*** e ***“body”***:
-
+Para fazer o ***“Registro de Usuários”*** via API, primeiro devemos nos registrar na aplicação via endpoint, utilizando o método HTTP ***“POST”*** no link ***“[link_ip/register]”*** e ***“body”***:
 
 
 Exemplo de envio do ***“body”***
 
-![](D:\Workspace\Aspose.Words.106c0b96-b83a-4038-a1ec-3c35f8e80562.001.jpeg)
+![](img/1.jpg)
 
 Resultado status code ***“201 - Created”***:
 
-![](D:\Workspace\Aspose.Words.106c0b96-b83a-4038-a1ec-3c35f8e80562.002.jpeg)
+![](img/2.jpg)
 
 
 
-![](D:\Workspace\Aspose.Words.106c0b96-b83a-4038-a1ec-3c35f8e80562.003.png)
-
-1. Após recebermos a validação do ***“Registro bem-sucedido”*** e o ***“access\_token”***, podemos fazer uma nova requisição utilizando o ***“Token”*** no ***“Headers”*** e o mesmo ***“body”***, para obter ***“Gerar Números Aleatórios”*** utilizando o método HTTP ***“GET”*** no link ***“[link_ip/genrand]”*** e ***“Headers”***:
+Após recebermos a validação do ***“Registro bem-sucedido”*** e o ***“access\_token”***, podemos fazer uma nova requisição utilizando o ***“Token”*** no ***“Headers”*** e o mesmo ***“body”***, para obter ***“Gerar Números Aleatórios”*** utilizando o método HTTP ***“GET”*** no link ***“[link_ip/genrand]”*** e ***“Headers”***:
 
 
 
 Devemos usar o ***“Token”*** no ***“Headers”*** da seguinte forma:
 #### ***Bearer + access\_token***
 
-![](D:\Workspace\Aspose.Words.106c0b96-b83a-4038-a1ec-3c35f8e80562.004.jpeg)
-
+![](img/3.jpg)
 
 
 Resultado ***“200 - OK”***, com todos os números no ***“response body”***:
 
 
-![](D:\Workspace\Aspose.Words.106c0b96-b83a-4038-a1ec-3c35f8e80562.005.jpeg)(A imagem está cortada, mas todos os números foram sorteados, respeitando o intervalo, valores mínimos e máximos.)
+(A imagem está cortada, mas todos os números foram sorteados, respeitando o intervalo, valores mínimos e máximos.)
 
-1. Caso o token da aplicação venha expirar, precisamos fazer uma nova requisição, por isso foi criado o endpoint para ***“Login”***, utilizando o método HTTP ***“POST”*** no link ***“[link_ip/login]”*** e ***“body”***:
+![](img/4.jpg)
 
-
-1. ***“username”*** - Usuário enviado no registro;
-2. ***“password”*** - Senha enviada no registro;
-
-![](D:\Workspace\Aspose.Words.106c0b96-b83a-4038-a1ec-3c35f8e80562.006.jpeg)
+Caso o token da aplicação venha expirar, precisamos fazer uma nova requisição, por isso foi criado o endpoint para ***“Login”***, utilizando o método HTTP ***“POST”*** no link ***“[link_ip/login]”*** e ***“body”***:
 
 
-Resultado ***“200 - OK”***, com um novo ***“access\_token”*** e a mensagem ***“response body”*** de
+- ***“username”*** - Usuário enviado no registro;
+- ***“password”*** - Senha enviada no registro;
 
-***“Login bem-sucedido”***:
+![](img/5.jpg)
 
-![](D:\Workspace\Aspose.Words.106c0b96-b83a-4038-a1ec-3c35f8e80562.007.jpeg)
+Resultado ***“200 - OK”***, com um novo ***“access\_token”*** e a mensagem ***“response body”*** de ***“Login bem-sucedido”***:
 
+![](img/6.jpg)
 
 # **Conclusão**
 Durante o desenvolvimento do projeto, alguns desafios e problemas técnicos surgiram, mas foram enfrentados e resolvidos de maneira eficaz. Abaixo, discutirei os principais desafios e como eles foram superados:
 
 
-1. #### ***Integração com o Flask e Extensões:***
+- #### ***Integração com o Flask e Extensões:***
 
 Um dos desafios iniciais foi configurar corretamente o ***“Flask”*** e suas extensões, como
 #### ***“Flask-SQLAlchemy”***, ***“Flask-JWT-Extended”*** e ***“Flasgger”***.
@@ -100,28 +94,28 @@ Um dos desafios iniciais foi configurar corretamente o ***“Flask”*** e suas 
 ***Solução:*** Para superar esse desafio, foram seguidas as documentações e tutoriais oficiais das extensões ***“Flask”***. Isso inclui a configuração do banco de dados, definição de modelos de dados e a integração de recursos de autenticação.
 
 
-1. #### ***Validação de Dados e Autenticação:***
+- #### ***Validação de Dados e Autenticação:***
 
 Implementar a validação de dados, como garantir que os valores mínimos e máximos sejam aceitáveis, bem como a autenticação de usuários, apresentou desafios técnicos.
 
 ***Solução:*** A aplicação utiliza uma abordagem estruturada para a validação de dados e a autenticação, com uso extensivo de exceções para capturar e lidar com erros. A utilização do ***“Flask-JWT-Extended”*** simplifica a criação e validação de tokens de acesso, o que ajuda a garantir a autenticação adequada dos usuários.
 
 
-1. #### ***Documentação com o Swagger:***
+- #### ***Documentação com o Swagger:***
 
 Integrar o ***“Swagger”*** para a documentação da API foi um desafio em termos de configuração e definição de rotas e parâmetros de maneira adequada.
 
 ***Solução:*** Foi utilizada a biblioteca ***“Flasgger”***, que simplificou a documentação da API. Foram fornecidas descrições detalhadas de rotas, parâmetros e respostas, o que facilita a compreensão e a utilização da API por desenvolvedores.
 
 
-1. #### ***Teste e Validação:***
+- #### ***Teste e Validação:***
 
 Testar a aplicação e garantir que todas as funcionalidades estivessem funcionando corretamente foi um desafio contínuo.
 
 ***Solução:*** Foram implementados testes unitários e de integração para cada funcionalidade, bem como testes de validação usando o ***“Postman”***. Isso ajudou a identificar e corrigir erros e garantir o funcionamento adequado da aplicação.
 
 
-1. #### ***Gerenciamento do Banco de Dados:***
+- #### ***Gerenciamento do Banco de Dados:***
 
 Gerenciar o banco de dados ***“SQLite”***, criar tabelas e interagir com o banco de dados apresentou desafios relacionados à configuração e manutenção.
 
