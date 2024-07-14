@@ -94,7 +94,7 @@ Um dos desafios iniciais foi configurar corretamente o **Flask** e suas extensõ
 
 **Solução:** Para superar esse desafio, foram seguidas as documentações e tutoriais oficiais das extensões **Flask**. Isso inclui a configuração do banco de dados, definição de modelos de dados e a integração de recursos de autenticação.
 
-## ✅ Validação de Dados e Autenticação
+### ✅ Validação de Dados e Autenticação
 Implementar a validação de dados, como garantir que os valores mínimos e máximos sejam aceitáveis, bem como a autenticação de usuários, apresentou desafios técnicos.
 
 **Solução:** A aplicação utiliza uma abordagem estruturada para a validação de dados e a autenticação, com uso extensivo de exceções para capturar e lidar com erros. A utilização do **Flask-JWT-Extended** simplifica a criação e validação de tokens de acesso, o que ajuda a garantir a autenticação adequada dos usuários.
